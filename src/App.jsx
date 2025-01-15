@@ -1,7 +1,11 @@
+import Header from './components/Header/Header';
+import SearchContainer from './containers/SearchContainer/SearchContainer';
+
 function App() {
   return (
     <>
-      <p>Google Books</p>
+      <Header />
+      <SearchContainer />
     </>
   );
 }

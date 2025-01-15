@@ -1,0 +1,17 @@
+@use '../../scss/partials/media_queries' as mq;
+
+.results {
+  //   margin: auto;
+  //   padding: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3em;
+  //   padding-top: 2em;
+  //   padding-bottom: 2em;
+  padding: 2em;
+  @include mq.xs {
+    padding: 2em 0 2em 0;
+  }
+}

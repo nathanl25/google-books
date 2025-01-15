@@ -1,0 +1,52 @@
+@use '../../scss/partials/media_queries' as mq;
+h2 {
+  padding: 0;
+  margin: 0;
+}
+h3 {
+  padding: 0;
+  margin: 0;
+}
+h4 {
+  padding: 0;
+  margin: 0;
+}
+.modal {
+  position: fixed;
+  //   position: static;
+  //   margin: auto;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: sans-serif;
+  //   display: flex;
+  //   flex-direction: column;
+  z-index: 1;
+  padding: 0;
+  background-color: grey;
+}
+.wrapper {
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  //   justify-content: space-between;
+  button {
+    // padding: 2em;
+    position: absolute;
+    align-self: flex-end;
+    top: 0;
+    right: 1em;
+  }
+}
+.top__half {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  @include mq.xs {
+    flex-direction: column-reverse;
+    gap: 2em;
+    padding-bottom: 2em;
+  }
+}

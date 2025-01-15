@@ -1,0 +1,38 @@
+.back {
+  position: absolute;
+  top: 0;
+  display: none;
+  height: 100%;
+  //   &:hover {
+  //     display: block;
+  //   }
+}
+// .wrapper {
+//   position: relative;
+//   &:hover {
+//     back {
+//       display: block;
+//     }
+//   }
+// }
+
+// .front {
+//   &:hover {
+//     // opacity: 1;
+//     + .back {
+//       display: block;
+//     }
+//   }
+// }
+.wrapper {
+  position: relative;
+  &:hover {
+    .front {
+      opacity: 0.5;
+    }
+    .back {
+      display: block;
+      height: 100%;
+    }
+  }
+}
