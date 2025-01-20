@@ -1,0 +1,14 @@
+.pagination {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.wrapper {
+  padding-bottom: 0.5em;
+  min-height: 3em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

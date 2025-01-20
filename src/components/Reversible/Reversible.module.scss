@@ -1,34 +1,22 @@
 .back {
   position: absolute;
+  display: flex;
   top: 0;
   display: none;
   height: 100%;
-  //   &:hover {
-  //     display: block;
-  //   }
 }
-// .wrapper {
-//   position: relative;
-//   &:hover {
-//     back {
-//       display: block;
-//     }
-//   }
-// }
 
-// .front {
-//   &:hover {
-//     // opacity: 1;
-//     + .back {
-//       display: block;
-//     }
-//   }
-// }
+.front {
+  &:hover {
+    color: rgb(196, 189, 189);
+  }
+}
 .wrapper {
   position: relative;
   &:hover {
     .front {
-      opacity: 0.5;
+      opacity: 0.8;
+      color: rgb(196, 189, 189);
     }
     .back {
       display: block;

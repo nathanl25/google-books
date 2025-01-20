@@ -1,29 +1,28 @@
 import classes from './Caption.module.scss';
 import FullDetailsModal from '../FullDetailsModal/FullDetailsModal';
 import { useState } from 'react';
-import { useRef } from 'react';
-const Caption = () => {
+const Caption = ({ bookInfo }) => {
   const [visible, setVisible] = useState(false);
-  const closeButton = () => {
-    setVisible(false);
-  };
-  const captionRef = useRef(null);
 
   const toggleVis = () => {
-    // console.log(JSON.stringify(captionRef));
-    // console.log(captionRef);
-    // // setVisible(true);
-    // console.log(captionRef.current.children[3].open);
-    // captionRef.current.children[3].open = true;
     setVisible(true);
   };
+
   return (
-    <div ref={captionRef}>
-      <h2>Title</h2>
-      <h3>Author</h3>
+    <div className={classes.caption}>
+      <h2 className={classes.title}>{bookInfo.title}</h2>
+      <h3 className={classes.authors}>
+        {bookInfo.authors === undefined
+          ? 'No Author Available'
+          : bookInfo.authors.join(', ')}
+      </h3>
+      <p className={classes.subtitle}>{bookInfo.subtitle}</p>
       <button onClick={toggleVis}>Show More...</button>
-      <FullDetailsModal visibility={visible} setVisibility={setVisible} />
-      {/* {visible && <FullDetailsModal />} */}
+      <FullDetailsModal
+        visibility={visible}
+        setVisibility={setVisible}
+        bookInfo={bookInfo}
+      />
     </div>
   );
 };

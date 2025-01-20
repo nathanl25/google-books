@@ -1,3 +1,7 @@
-.description__wrapper {
-  height: 200px;
+@use '../../scss/partials/media_queries' as mq;
+.field {
+  padding: 3em;
+  @include mq.xs {
+    padding: 1em;
+  }
 }

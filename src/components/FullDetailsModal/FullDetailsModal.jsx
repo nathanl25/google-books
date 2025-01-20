@@ -2,32 +2,33 @@ import classes from './FullDetailsModal.module.scss';
 import Image from '../Image/Image';
 import About from '../About/About';
 import { useRef } from 'react';
-const FullDetailsModal = ({ visibility, setVisibility }) => {
+const FullDetailsModal = ({ visibility, setVisibility, bookInfo }) => {
   const dialogRef = useRef(null);
   if (visibility === true) {
-    console.log(dialogRef);
     dialogRef.current.open = true;
   }
   const closeButton = () => {
     dialogRef.current.open = false;
     setVisibility(false);
   };
+  bookInfo.authors ??= [];
+  const authors = bookInfo.authors.join(', ');
   return (
     <dialog className={classes.modal} ref={dialogRef}>
       <div className={classes.wrapper}>
         <button onClick={closeButton}>Close</button>
         <section className={classes.top__half}>
-          <div>
-            <h2 className={classes.title}>Flour Water Salt Yeast</h2>
-            <h3 className={classes.title}>
-              The Fundamentals of Artisan Bread and Pizza [A Cookbook]
-            </h3>
-            <h4>By Ken Forkish - 2012</h4>
+          <div className={classes.container}>
+            <h2 className={classes.title}>{bookInfo.title}</h2>
+            <h3 className={classes.title}>{bookInfo.subtitle}</h3>
+            <h4>
+              {authors} - {bookInfo.date && bookInfo.date.substring(0, 4)}
+            </h4>
           </div>
-          <Image />
+          <Image link={bookInfo.url} />
         </section>
-        <section>
-          <About />
+        <section className={classes.bottom__half}>
+          <About bookInfo={bookInfo} />
         </section>
       </div>
     </dialog>

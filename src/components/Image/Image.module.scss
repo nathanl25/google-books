@@ -1,3 +1,39 @@
+@use '../../scss/partials/media_queries' as mq;
 .img {
   height: 250px;
+  width: 200px;
+  object-fit: cover;
+  @include mq.xs {
+    height: 200px;
+    width: 160px;
+  }
+}
+.no__img {
+  height: 250px;
+  width: 200px;
+  object-fit: cover;
+  background-color: rgb(196, 189, 189);
+  &:hover {
+    color: rgb(196, 189, 189);
+  }
+  @include mq.xs {
+    height: 200px;
+    width: 160px;
+  }
+}
+.text {
+  font-family: 'roboto';
+  font-style: oblique;
+  font-weight: 500;
+  margin: 0;
+  font-size: 1.125em;
+  position: absolute;
+  transform: rotate(55deg);
+  top: 48%;
+  left: 13%;
+  @include mq.xs {
+    font-size: 1em;
+    top: 47%;
+    left: 8%;
+  }
 }

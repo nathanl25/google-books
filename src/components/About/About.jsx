@@ -1,19 +1,18 @@
 import classes from './About.module.scss';
 import Description from '../Description/Description';
-const About = () => {
+import Field from '../Field/Field';
+const About = ({ bookInfo }) => {
+  const isbn = bookInfo.identifiers.join(', ');
+  const categories = bookInfo.categories.join(', ');
   return (
     <>
-      <section>
-        <h4>ISBN</h4>
-        <h4>Page Count</h4>
-        <h4>Publish Date</h4>
-        <h4>Publisher</h4>
-        <h4>Language</h4>
-        <h4>Author</h4>
+      <section className={classes.field}>
+        <Field field="ISBN" value={isbn} />
+        <Field field="Publish Date" value={bookInfo.date} />
+        <Field field="Categories" value={categories} />
+        <Field field="Publisher" value={bookInfo.publisher} />
       </section>
-      <section className={classes.description__wrapper}>
-        <Description />
-      </section>
+      <Description description={bookInfo.description} variant=".full_details" />
     </>
   );
 };

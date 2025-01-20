@@ -1,0 +1,23 @@
+.page__button {
+  border: none;
+  margin: 0;
+  background-color: white;
+  box-sizing: content-box;
+  border: 2px solid white;
+  border-radius: 4px;
+  &:hover {
+    border: 2px solid black;
+  }
+}
+.text__wrapper {
+  border: 2px solid white;
+  font-weight: bolder;
+}
+.page__text {
+  font-family: 'roboto';
+  padding: 0.5em;
+  margin: 0;
+  &__bold {
+    font-weight: bold;
+  }
+}

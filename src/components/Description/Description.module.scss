@@ -1,6 +1,16 @@
 .description {
-  //   width: 150px;
-  //   height: 100px;
+  font-family: roboto;
+  overflow: auto;
+}
+.reversible {
   height: 100%;
-  overflow: scroll;
+  background-color: rgba(171, 163, 163, 0.493);
+}
+.full__details {
+  max-height: 300px;
+}
+.wrapper {
+  color: rgb(49, 48, 48);
+  font-weight: 400;
+  padding: 0.5em;
 }

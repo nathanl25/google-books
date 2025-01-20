@@ -1,12 +1,17 @@
 import classes from './Image.module.scss';
 
-const Image = () => {
+const Image = ({ link }) => {
   return (
-    <img
-      className={classes.img}
-      src="http://books.google.com/books/content?id=chI0uRYS8wYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-      alt=""
-    />
+    <>
+      {link === 'no image available' && (
+        <div className={classes.no__img}>
+          <p className={classes.text}>No Image Available</p>
+        </div>
+      )}
+      {link !== 'no image available' && (
+        <img className={classes.img} src={link} alt="" />
+      )}
+    </>
   );
 };
 export default Image;

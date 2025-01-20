@@ -1,21 +1,19 @@
 import classes from './Results.module.scss';
 import CardContainer from '../../containers/CardContainer/CardContainer';
-const Results = ({ data = null }) => {
+import { SearchResultContext } from '../../context/SearchResultContextProvider';
+import { useContext } from 'react';
+const Results = () => {
+  const { results } = useContext(SearchResultContext);
   return (
-    <div className={classes.results}>
-      {!data && <CardContainer />}
-      {!data && <CardContainer />}
-      {!data && <CardContainer />}
-      {!data && <CardContainer />}
-      {!data && <CardContainer />}
-      {!data && <CardContainer />}
-      {!data && <CardContainer />}
-      {!data && <CardContainer />}
-      {!data && <CardContainer />}
-      {!data && <CardContainer />}
-      {!data && <CardContainer />}
-      {!data && <CardContainer />}
-    </div>
+    <>
+      {results && (
+        <div className={classes.results}>
+          {results.map((book) => (
+            <CardContainer key={book.key} id={book.key} />
+          ))}
+        </div>
+      )}
+    </>
   );
 };
 export default Results;

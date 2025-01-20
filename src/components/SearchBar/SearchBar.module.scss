@@ -1,0 +1,14 @@
+.search__wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 1em;
+  font-family: 'roboto';
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5em;
+}
+.text__input {
+  font-size: 1.5em;
+  width: 60%;
+}
