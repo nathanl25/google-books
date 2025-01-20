@@ -3,7 +3,7 @@ import Caption from '../../components/Caption/Caption';
 import Reversible from '../../components/Reversible/Reversible';
 import { SearchResultContext } from '../../context/SearchResultContextProvider';
 import { useContext } from 'react';
-const CardContainer = ({ id, variant = '' }) => {
+const CardContainer = ({ id }) => {
   const { results } = useContext(SearchResultContext);
   const bookInfo = results.find((book) => {
     if (id === book.key) {
@@ -12,15 +12,10 @@ const CardContainer = ({ id, variant = '' }) => {
   });
   return (
     <>
-      {variant === '' && (
-        <div className={classes.card}>
-          <Reversible bookInfo={bookInfo} />
-          <Caption bookInfo={bookInfo} />
-        </div>
-      )}
-      {variant !== '' && (
-        <div className={`${classes.card} ${classes.skeleton}`}></div>
-      )}
+      <div className={classes.card}>
+        <Reversible bookInfo={bookInfo} />
+        <Caption bookInfo={bookInfo} />
+      </div>
     </>
   );
 };

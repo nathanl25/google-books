@@ -4,7 +4,7 @@ import { SearchResultContext } from '../../context/SearchResultContextProvider';
 import { paginate } from './paginateDisplay';
 import PageNumber from '../PageNumber/PageNumber';
 const Pagination = ({ searchValue }) => {
-  const { results, currPage, totalPages } = useContext(SearchResultContext);
+  const { currPage, totalPages } = useContext(SearchResultContext);
   const display = paginate(Number(totalPages), Number(currPage));
   return (
     <div className={classes.pagination}>

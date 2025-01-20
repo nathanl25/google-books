@@ -3,7 +3,8 @@ import { useContext } from 'react';
 import { SearchResultContext } from '../../context/SearchResultContextProvider';
 import { searchBooks } from '../../utilities/books';
 const PageNumber = ({ value, searchValue }) => {
-  const { setResults, setCurrPage, currPage } = useContext(SearchResultContext);
+  const { setResults, setCurrPage, currPage, setSearchStatus, setError } =
+    useContext(SearchResultContext);
   let type = '';
   switch (value) {
     case '...':
@@ -17,14 +18,17 @@ const PageNumber = ({ value, searchValue }) => {
       type = 'enabled';
   }
   const changePage = () => {
+    setSearchStatus('LOADING');
     const index = (Number(value) - 1) * 12;
     searchBooks(searchValue, index)
       .then((data) => {
+        setSearchStatus('SUCCESS');
         setCurrPage(Number(value));
         setResults(data.data);
       })
       .catch((error) => {
-        console.log(error);
+        setSearchStatus('FAILURE');
+        setError(error);
       });
   };
   return (
